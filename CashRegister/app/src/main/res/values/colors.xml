@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    colors.xml
+    PURPOSE: Central color resource file for the Cash Register app.
+    All colors used in layouts and styles are defined here for easy theming.
+    Referenced as @color/<name> in XML or R.color.<name> in Java.
+-->
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Primary brand color — used for BUY button and key action buttons -->
+    <color name="colorPrimary">#1B5E20</color>
+
+    <!-- Darker shade for pressed/ripple states on primary buttons -->
+    <color name="colorPrimaryDark">#003300</color>
+
+    <!-- Accent color — used for MANAGER and secondary action buttons -->
+    <color name="colorAccent">#388E3C</color>
+
+    <!-- Numpad button background — neutral gray so digits stand out from action buttons -->
+    <color name="colorNumpad">#EEEEEE</color>
+
+    <!-- Numpad button text color -->
+    <color name="colorNumpadText">#212121</color>
+
+    <!-- Background for selected product row highlight in ListViews -->
+    <color name="colorSelectedRow">#C8E6C9</color>
+
+    <!-- Muted text color for secondary labels (price, quantity subtitles) -->
+    <color name="colorTextSecondary">#757575</color>
+</resources>

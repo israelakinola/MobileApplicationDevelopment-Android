@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_restock.xml
+    PURPOSE: Layout for the Restock Inventory screen.
+    Manager selects a product from the ListView, enters a quantity in the EditText,
+    then taps OK to add stock or CANCEL to go back without saving.
+    USED BY: RestockActivity
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Product ListView: fills the top portion of the screen.
+         height=0dp (match constraints) lets it take all space above the input row. -->
+    <ListView
+        android:id="@+id/listViewProducts"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/editTextQty" />
+
+    <!-- Quantity EditText: above the OK/CANCEL buttons, numeric input only -->
+    <EditText
+        android:id="@+id/editTextQty"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_restock_qty"
+        android:inputType="number"
+        android:padding="8dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnOk" />
+
+    <!-- OK button: left half of the bottom row, saves the restock -->
+    <Button
+        android:id="@+id/btnOk"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_ok"
+        android:textSize="16sp"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnCancel"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- CANCEL button: right half of the bottom row, returns to ManagerActivity -->
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_cancel"
+        android:textSize="16sp"
+        android:backgroundTint="@color/colorTextSecondary"
+        android:textColor="@color/white"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="6dp"
+        app:layout_constraintStart_toEndOf="@id/btnOk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

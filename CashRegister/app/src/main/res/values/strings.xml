@@ -1,0 +1,43 @@
+<!--
+    strings.xml
+    PURPOSE: Central string resource file for the Cash Register app.
+    All user-visible text is defined here so it can be easily edited or localized.
+    Referenced in layouts and Java code as R.string.<name> or @string/<name>.
+-->
+<resources>
+    <string name="app_name">Cash-Register</string>
+
+    <!-- MainActivity labels and hints -->
+    <string name="label_selected_product">Selected Product</string>
+    <string name="hint_select_product">No product selected</string>
+    <string name="hint_quantity">Quantity: 0</string>
+    <string name="hint_total">Total: $0.00</string>
+    <string name="btn_buy">BUY</string>
+    <string name="btn_manager">MANAGER</string>
+    <string name="btn_clear">C</string>
+
+    <!-- Product list column headers (used in list_item_product.xml) -->
+    <string name="label_price">Price</string>
+    <string name="label_quantity">Qty</string>
+
+    <!-- ManagerActivity labels -->
+    <string name="title_manager">Manager Panel</string>
+    <string name="btn_history">HISTORY</string>
+    <string name="btn_restock">RESTOCK</string>
+
+    <!-- HistoryActivity labels -->
+    <string name="title_history">Purchase History</string>
+    <string name="label_no_history">No purchases yet.</string>
+
+    <!-- HistoryDetailActivity labels -->
+    <string name="title_history_detail">Purchase Detail</string>
+    <string name="label_product">Product: </string>
+    <string name="label_total_price">Price: </string>
+    <string name="label_purchase_date">Purchase Date: </string>
+
+    <!-- RestockActivity labels -->
+    <string name="title_restock">Restock Inventory</string>
+    <string name="hint_restock_qty">Enter quantity to add</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">CANCEL</string>
+</resources>

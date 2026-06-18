@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_main.xml  (portrait)
+    PURPOSE: Main cash register screen layout.
+    STRUCTURE (top to bottom):
+      - MANAGER button: top-right corner
+      - ListView: fills the top portion, shows all products
+      - tvSelectedProduct: shows the currently tapped product name
+      - tvQuantity / tvTotal: side-by-side display above the numpad
+      - TableLayout (numpad): bottom-left, 4 rows x 3 cols (digits + C)
+      - BUY button: right of numpad, constrained to span the numpad's full height
+    The landscape variant (res/layout-land/activity_main.xml) repositions these
+    same views for a two-column layout — Android picks it automatically on rotation.
+-->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+
+    <!-- MANAGER button: top-right corner, opens ManagerActivity -->
+    <Button
+        android:id="@+id/btnManager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_manager"
+        android:backgroundTint="@color/colorAccent"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Product ListView: fills space from below MANAGER button down to the info TextViews.
+         height=0dp (match constraints) lets ConstraintLayout determine the height
+         based on its top and bottom anchors. -->
+    <ListView
+        android:id="@+id/listViewProducts"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        app:layout_constraintTop_toBottomOf="@id/btnManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvSelectedProduct" />
+
+    <!-- Selected product name: anchored just above the quantity/total row.
+         Shows hint text until the user taps a product row. -->
+    <TextView
+        android:id="@+id/tvSelectedProduct"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_select_product"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:padding="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvQuantity" />
+
+    <!-- Quantity display: left half, anchored just above the numpad.
+         Updated on every numpad digit press. -->
+    <TextView
+        android:id="@+id/tvQuantity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_quantity"
+        android:textSize="15sp"
+        android:padding="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvTotal"
+        app:layout_constraintBottom_toTopOf="@id/tableNumpad" />
+
+    <!-- Total display: right half, anchored just above the numpad.
+         Recalculates on every digit press: quantity x selected product price. -->
+    <TextView
+        android:id="@+id/tvTotal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_total"
+        android:textSize="15sp"
+        android:textAlignment="textEnd"
+        android:padding="4dp"
+        app:layout_constraintStart_toEndOf="@id/tvQuantity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tableNumpad" />
+
+    <!-- Numpad TableLayout: anchored to bottom-left, width fills space left of BUY button.
+         stretchColumns="*" makes all three columns equal width.
+         4 rows: [1,2,3] [4,5,6] [7,8,9] [C, 0(span=2)] -->
+    <TableLayout
+        android:id="@+id/tableNumpad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnBuy">
+
+        <TableRow android:layout_width="match_parent">
+            <Button android:id="@+id/btn1" android:text="1"
+                android:backgroundTint="@color/colorNumpad"
+                android:textColor="@color/colorNumpadText" android:textSize="18sp" />
+            <Button android:id="@+id/btn2" android:text="2"
+                android:backgroundTint="@color/colorNumpad"
+                android:textColor="@color/colorNumpadText" android:textSize="18sp" />
+            <Button android:id="@+id/btn3" android:text="3"
+                android:backgroundTint="@color/colorNumpad"
+                android:textColor="@color/colorNumpadText" android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent">
+            <Button android:id="@+id/btn4" android:text="4"
+                android:backgroundTint="@color/colorNumpad"
+                android:textColor="@color/colorNumpadText" android:textSize="18sp" />
+            <Button android:id="@+id/btn5" android:text="5"
+                android:backgroundTint="@color/colorNumpad"
+                android:textColor="@color/colorNumpadText" android:textSize="18sp" />
+            <Button android:id="@+id/btn6" android:text="6"
+                android:backgroundTint="@color/colorNumpad"
+                android:textColor="@color/colorNumpadText" android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow android:layout_width="match_parent">
+            <Button android:id="@+id/btn7" android:text="7"
+                android:backgroundTint="@color/colorNumpad"
+                android:textColor="@color/colorNumpadText" android:textSize="18sp" />
+            <Button android:id="@+id/btn8" android:text="8"
+                android:backgroundTint="@color/colorNumpad"
+                android:textColor="@color/colorNumpadText" android:textSize="18sp" />
+            <Button android:id="@+id/btn9" android:text="9"
+                android:backgroundTint="@color/colorNumpad"
+                android:textColor="@color/colorNumpadText" android:textSize="18sp" />
+        </TableRow>
+
+        <!-- Bottom row: C clear button (1 col) and 0 spanning 2 cols -->
+        <TableRow android:layout_width="match_parent">
+            <Button android:id="@+id/btnClear" android:text="@string/btn_clear"
+                android:backgroundTint="@color/colorAccent"
+                android:textColor="@color/white" android:textSize="18sp" />
+            <Button android:id="@+id/btn0" android:text="0"
+                android:backgroundTint="@color/colorNumpad"
+                android:textColor="@color/colorNumpadText" android:textSize="18sp"
+                android:layout_span="2" />
+        </TableRow>
+
+    </TableLayout>
+
+    <!-- BUY button: right of numpad, height=0dp so it stretches to match the
+         numpad's top and bottom — acts as a tall action button on the right side. -->
+    <Button
+        android:id="@+id/btnBuy"
+        android:layout_width="88dp"
+        android:layout_height="0dp"
+        android:text="@string/btn_buy"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/tableNumpad"
+        app:layout_constraintBottom_toBottomOf="@id/tableNumpad"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
