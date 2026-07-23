@@ -14,3 +14,7 @@ local.properties
 
 # macOS
 .DS_Store
+
+# Retired assignment folders (kept locally, no longer tracked)
+/Calculator/
+/CashRegister/
