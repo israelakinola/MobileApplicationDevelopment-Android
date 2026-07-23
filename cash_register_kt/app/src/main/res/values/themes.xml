@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base platform theme for Nimbus Register. Compose overrides colors/typography at
+         runtime via NimbusRegisterTheme, so this only needs to strip the action bar. -->
+    <style name="Theme.NimbusRegister" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>

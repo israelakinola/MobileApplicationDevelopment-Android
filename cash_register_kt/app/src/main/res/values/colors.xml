@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    XML mirror of the Nimbus Register palette defined in Kotlin at
+    ui/theme/Color.kt. Compose reads its colors from that Kotlin file at
+    runtime; these resource entries exist only for legacy/XML-driven views
+    (e.g. the launcher icon background) that cannot reference Compose code.
+-->
+<resources>
+    <color name="nimbus_amber_flare">#FFB35A00</color>
+    <color name="nimbus_lagoon_mist">#FF0F6E67</color>
+    <color name="nimbus_coral_bloom">#FFD1435A</color>
+    <color name="nimbus_canvas_light">#FFFFF8F0</color>
+    <color name="nimbus_canvas_dark">#FF1B1712</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
